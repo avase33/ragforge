@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ragforge-engine"
+version = "0.1.0"
+description = "From-scratch embeddings + vector store + RAG + eval for ragforge"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Akhil Vase" }]
+dependencies = []
+
+[project.optional-dependencies]
+server = ["fastapi>=0.110", "uvicorn>=0.29", "pydantic>=2"]
+dev = ["pytest>=8", "ruff>=0.4", "fastapi>=0.110", "uvicorn>=0.29", "pydantic>=2"]
+
+[project.scripts]
+ragforge-engine = "ragforge_engine.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ragforge_engine*"]
+
+[tool.ruff]
+line-length = 100
